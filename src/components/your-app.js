@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {yourAction} from '../actions/yourActions.js';
 import YourComponent1 from './your-component.js'
 import YourComponent2 from './your-component2.js'
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom'; //{Link} to shift page;
 
 class YourComponent extends React.Component {
 

@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {yourAction} from '../actions/yourActions.js';
+import YourComponent1 from './your-component.js'
+import YourComponent2 from './your-component2.js'
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class YourComponent extends React.Component {
-
-  componentWillMount(){
-    this.props.yourAction(1);
-  }
 
   constructor(props) {
     super(props);
@@ -14,9 +13,12 @@ class YourComponent extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>Your Redux Props : {this.props.reduxProps}</p>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route path="/" component={YourComponent1} exact/>
+          <Route path="/c2" component={YourComponent2} />
+        </div>
+      </BrowserRouter>
     );
   }
 }

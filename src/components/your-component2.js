@@ -5,7 +5,7 @@ import {yourAction} from '../actions/yourActions.js';
 class YourComponent extends React.Component {
 
   componentWillMount(){
-    this.props.yourAction(1);
+    this.props.yourAction(2);
   }
 
   constructor(props) {

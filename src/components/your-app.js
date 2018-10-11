@@ -14,7 +14,7 @@ class YourComponent extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div style={{padding:0}}>
+        <div>
           <Route path="/" component={YourComponent1} exact/>
           <Route path="/c2" component={YourComponent2} />
         </div>

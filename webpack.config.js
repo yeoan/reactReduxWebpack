@@ -1,43 +1,13 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
-const webpack = require('webpack');
+const devConfig = require('./build/webpack.dev.js')
+const prodConfig = require('./build/webpack.prod.js')
 
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    path:path.join(__dirname,'/dist'),
-    filename: '[name].[contenthash].js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      }
-    ]
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-       vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-        }
-     }
+module.exports = env => {
+    let mode = env.mode;
+    let isProdEnv = mode == "production" ? true : false;
+
+    if(mode == "development") {
+        return devConfig(isProdEnv)
+    } else {
+        return prodConfig(isProdEnv)
     }
-  },
-  devServer: {
-    historyApiFallback: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }),
-    new Dotenv(),
-  ]
-};
+}

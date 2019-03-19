@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { NavLink } from 'react-router-dom'
 
 class Navigation extends React.Component {
 
@@ -17,10 +18,10 @@ class Navigation extends React.Component {
           <a class="navbar-brand" href="#"><img src="../assets/ntust_logo.png"  height="30" width="30"/></a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#">首頁 </a>
+              <NavLink to="/" className="nav-link">首頁 </NavLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">其他 </a>
+              <NavLink to="/other" className="nav-link">其他 </NavLink>
             </li>
           </ul>
         </div>
